@@ -1,0 +1,24 @@
+Name: gtygvh
+Type: vip
+-------------
+Name: gtygvh
+Type: regular
+-------------
+Name: w
+Type: vip
+-------------
+Name: gdh
+Type: regular
+-------------
+Name: w
+Type: regular
+-------------
+Name: s
+Type: regular
+-------------
+Name: D
+Type: vip
+-------------
+Name: gdh
+Type: regular
+-------------
