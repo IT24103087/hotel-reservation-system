@@ -1,9 +1,0 @@
-a7c2e4ae-bde2-4071-a86a-fb14dedf760d|Vithusa|female|2003-04-16|United Kingdom|+44 65856 5668|vi@gmail.com|id:35656879|regular|versal|good thinking|true|false|false
-d79795e5-39a3-4394-9486-7b80bba0417f|Liyoshan|male|2003-05-12|SriLanka|0763256898|liyoshan@gmail.com|ID:898989 45656|vip|Valvettiturai|i'm vegetarian|true|true|false
-cb2dab8a-ecb9-4ec2-a55c-4b9433b312f5|Gowshika|female|2003-12-19|Canada|+46 3445 87337|gowshika@gmail.com|passport:34975 45678|vip|Toranto||true|false|true
-dcc33d5a-2579-4ecf-9c3c-6ec437f225dc|Moosika|female|2001-08-12|France|+54 4557 43567|moosika@gmail.com|id:435v56789b|regular|lane09|nothing|true|false|false
-e881211f-68c6-4bf5-ae00-c9b585dfbe5c|Anoja|female|1998-06-09|SriLankan|+94 234789086|anoja@gmail.com|passport: 65676 5656|regular|Colombo||false|false|true
-625d19a4-1e3f-4474-ab2c-e60c8fda03ad|s|female|2025-05-14|gyu|0775018193|it24103073@my.sliit.lk|swwdwd|regular|ydszdtgyb|dee|false|false|false
-e9985d1e-65df-4e99-85aa-bb6a2ac4b030|vithus|male|2025-05-26|gyu|0775018193|sqqsqsss@gmail.com|drtygu|regular|cder5r6t7guvhsww|rttyuik|true|false|false
-7a31e5a0-a0c0-4641-b589-9baacd246b46|vasee|male|2025-05-28|wsdw|0775018193|bh@gmail.com|ter|regular|rtyui|drtyguhb|true|false|false
-53ec3d9a-06f5-4e39-bcf7-d470faf8982f|Anu|female|2025-05-06|SriLankan|+44 65856 5668|vi@gmail.com|r56r|vip|wssw|sdwertyuikljkj|true|true|false

@@ -1,4 +1,0 @@
-https://api.dicebear.com/7.x/lorelei/svg?seed=Girl1
-https://api.dicebear.com/7.x/lorelei/svg?seed=Girl2
-https://api.dicebear.com/7.x/adventurer/svg?seed=Boy1
-https://api.dicebear.com/7.x/adventurer/svg?seed=Boy2
