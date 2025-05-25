@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Details Access</title>
+
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #ff4e50;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: var(--light);
+            height: 100vh;
+            padding: 20px;
+            background-size:cover ;
+            background-position: center ;
+            background-image: url(https://www.ahstatic.com/photos/a121_ho_00_p_1024x768.jpg);
+
+
+        }
+
+
+
+
+        @keyframes teddy-container {
+            0% { transform: translateY(0); }
+            25% { transform: translateY(-3px); }
+            50% { transform: translateY(3px); }
+            75% { transform: translateY(-3px); }
+            100% {  }
+        }
+
+
+
+
+        .teddy-container {
+            position: relative;
+            width: 300px;
+            height: 450px;
+            margin-top: 110px ;
+            z-index: 3;
+            display: inline-block;
+            animation: teddy-container 0.6s;
+            animation-iteration-count: 1;
+
+        }
+
+        .teddy-body {
+            width: 195px;
+            height: 195px;
+            background:linear-gradient(135deg, var(--secondary), #d2b48c);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 97px;
+            left: 58px;
+            border-color: #d89e6e;
+            border-style: solid;
+            box-shadow: 0 0 10px rgba(224, 69, 15, 3.0);
+        }
+
+        .teddy-head {
+            background:linear-gradient(135deg, var(--secondary), #d2b48c);
+            backdrop-filter: blur(10px);
+            width: 150px;
+            height: 150px;
+
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 75px;
+            border-color: #d89e6e;
+            border-style: solid;
+            box-shadow: 0 0 10px rgba(224, 67, 15, 3.0);
+
+        }
+
+        .teddy-ear {
+            width: 50px;
+            height: 50px;
+            background:linear-gradient(135deg, var(--secondary), #d2b48c);
+            border-radius: 50%;
+            position: absolute;
+            top: -8px;
+        }
+
+        .teddy-ear .shape{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background:linear-gradient(135deg, var(--secondary), #d2b48c);
+            backdrop-filter: blur(10px);
+            position: absolute;
+            top:30%;
+            bottom: 20%;
+            right: 20%;
+            left:30%;
+
+        }
+
+        .teddy-ear.left {
+            left: 60px;
+        }
+
+        .teddy-ear.right {
+            right: 60px;
+        }
+
+        @keyframes shake {
+            0% { transform: translateY(0); }
+            25% { transform: translateY(-3px); }
+            50% { transform: translateY(3px); }
+            75% { transform: translateY(-3px); }
+            100% {  }
+        }
+
+        .teddy-ear.shake {
+            animation: shake 0.4s ease;
+        }
+        .teddy-eye {
+            width: 30px;
+            height: 30px;
+            background-color: rgb(51, 51, 51);
+            border-radius: 50%;
+            position: absolute;
+            top: 58px;
+            z-index: 2;
+        }
+        .teddy-eye .dot{
+            background-color: #ddd;
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            border-radius: 50%;
+            bottom: 5px;
+            left: 8.5px;
+        }
+
+        .teddy-eye.left {
+            left: 95px;
+        }
+
+        .teddy-eye.right {
+            right: 95px;
+        }
+
+        @keyframes rotateEye {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(30deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-30deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .teddy-eye.rotateEye {
+            animation: rotateEye 0.4s ease;
+        }
+
+        .teddy-nose {
+            width: 14px;
+            height: 14px;
+            background-color: #333;
+            border-radius:100%;
+            position: absolute;
+            top: 93px;
+            left: 144px;
+            z-index: 2;
+        }
+
+        .mouth{
+            width: 28px;
+            height: 15px;
+            background-color: black;
+            position: absolute;
+            top:122px;
+            left:138px;
+            border-radius:0 0 100px 100px;
+            transform: rotate(0deg);
+        }
+
+        .teddy-arm {
+
+            width: 40px;
+            height: 60px;
+            background:linear-gradient(135deg, var(--secondary), #d2b48c);
+            position: absolute;
+            bottom: 195px;
+            border-color: black;
+            border-color: #d89e6e;
+            border-style: solid;
+            box-shadow: 0 0 10px rgba(224, 69, 5, 1.0);
+            border-radius: 50px 50px 50px 50px;
+            z-index: 8;
+            transition: transform 0.5s ease;
+        }
+
+        .teddy-arm.left {
+            left: 45px;
+            transform: rotate(30deg);
+            transform-origin: top;
+        }
+
+        .teddy-arm.right {
+            right: 25px;
+            transform: rotate(-30deg);
+            transform-origin: top;
+        }
+
+        .full{
+            height: 650px;
+            width: 800px;
+            background-color: transparent;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            position: absolute;
+            left: 25%;
+
+        }
+
+
+
+        .login-form {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            position: relative;
+            background:linear-gradient(to left,rgb(191, 222, 247) , #f8f9fa);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 500px;
+            margin: 5px auto;
+            margin-left:0px;
+            top:200px;
+            right: 100px;
+            z-index: 4;
+
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            margin-top: 20px;
+            display: inline-block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+
+        }
+
+        button {
+            background:linear-gradient(135deg, var(--secondary), #d2b48c);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+
+        label:hover {
+            transform: translateX(5px) scale(1.2);
+        }
+
+        input:focus {
+            transform: translateX(5px) scale(1.2);
+        }
+
+
+
+
+
+
+        @media (max-width: 1024px) {
+
+            .full {
+                width: 90%;
+                left: 3%;
+                height: auto;
+                padding: 15px;
+            }
+
+            .teddy-container {
+                margin-top: 50px;
+
+
+            }
+
+
+            .login-form {
+                width: 120%;
+                margin: 20px auto 0 auto;
+                position: absolute;
+                top: 200px;
+                right: auto;
+                left: -35px;
+            }
+
+            .teddy-eye{
+                position: absolute;
+                top: 58px;
+            }
+
+            .teddy-eye.left{
+                position: absolute;
+                left:100px;
+            }
+
+            .teddy-eye.right{
+                position: absolute;
+                right:100px;
+            }
+
+
+
+            .teddy-nose{
+                top: 93px;
+                left: 144px;
+            }
+            .teddy-ear{
+                position: absolute;
+                top: -6px;            }
+            .teddy-arm{
+                position: absolute;
+                top:189px;
+            }
+            .teddy-body{
+                position: absolute;
+                top:150px;
+
+
+
+            }
+            .teddy-head {
+                transform: scale(0.9);
+            }
+
+            input {
+                padding: 8px;
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+
+
+
+
+        @media (max-width: 768px) {
+
+            .full {
+                width: 85%;
+                left: 4%;
+                height: auto;
+                padding: 15px;
+            }
+
+            .teddy-container {
+                margin-top: 50px;
+
+
+            }
+
+
+            .login-form {
+                width: 90%;
+                margin: 20px auto 0 auto;
+                position: absolute;
+                top: 200px;
+                right: auto;
+                left: 8px;
+            }
+
+            .teddy-eye{
+                position: absolute;
+                top: 58px;
+            }
+
+            .teddy-eye.left{
+                position: absolute;
+                left:100px;
+            }
+
+            .teddy-eye.right{
+                position: absolute;
+                right:100px;
+            }
+
+
+
+            .teddy-nose{
+                top: 93px;
+                left: 144px;
+            }
+            .teddy-ear{
+                position: absolute;
+                top: -6px;            }
+            .teddy-arm{
+                position: absolute;
+                top:189px;
+            }
+            .teddy-body{
+                position: absolute;
+                top:150px;
+
+
+
+            }
+            .teddy-head {
+                transform: scale(0.9);
+            }
+
+            input {
+                padding: 8px;
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="full">
+    <div class="teddy-container">
+        <div class="teddy-ear left">
+            <div class="shape"></div>
+        </div>
+        <div class="teddy-ear right">
+            <div class="shape"></div>
+        </div>
+        <div class="teddy-head"></div>
+        <div class="teddy-eye left">
+            <div class = "dot"></div>
+        </div>
+        <div class="teddy-eye right">
+            <div class = "dot"></div>
+        </div>
+        <div class="teddy-nose"></div>
+        <div class="mouth">
+        </div>
+        <div class="teddy-body"></div>
+        <div class="teddy-arm left">
+        </div>
+        <div class="teddy-arm right">
+        </div>
+
+
+        <div class="login-form">
+            <div class="form-group">
+                <label for="staffId">Staff ID:</label>
+                <input type="text" id="staffId" placeholder="Enter your staff ID">
+            </div>
+            <div class="form-group">
+                <label for="password1">Password:</label>
+                <input type="password" id="password1" placeholder="Enter your password">
+            </div>
+            <button id="loginBtn" >Go</button>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+<script>
+    const passwordInput = document.getElementById('password1');
+    const staffId = document.getElementById('staffId');
+
+    const leftArm = document.querySelector('.teddy-arm.left');
+    const rightArm = document.querySelector('.teddy-arm.right');
+    const dot =document.querySelectorAll(".dot");
+    const mouth = document.querySelector('.mouth');
+    const ears = document.querySelectorAll('.teddy-ear');
+    const eyes = document.querySelectorAll('.teddy-eye');
+
+
+
+    const input = document.querySelectorAll('input');
+    const inputs = document.querySelectorAll('input,button');
+    button = document.getElementById('loginBtn');
+
+
+
+
+    inputs.forEach((input, index) => {
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                const next = inputs[index + 1];
+                if (next) next.focus();
+            }
+
+            if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                const prev = inputs[index - 1];
+                if (prev) prev.focus();
+            }
+        });
+    });
+
+    // Handle Enter in password input
+    passwordInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const allFilled = Array.from(input).every(inp => inp.value.trim() !== '');
+
+            const passwordValue= passwordInput.value.trim();
+            const staffIdValue= staffId.value.trim();
+
+
+            if (allFilled) {
+                if(passwordValue === "2003oop"  || passwordValue === "20030514" && staffIdValue === "group09"){
+                    window.location.href = '/guests'
+                }
+                else{
+                    alert('Incorrect Staff ID or password! Please Check again');
+                }
+                ;
+            } else {
+                alert('Please fill in all fields before continuing.');
+            }
+        }
+    });
+
+    button.addEventListener('click', function () {
+        const allFilled = Array.from(input).every(inp => inp.value.trim() !== '');
+
+        const passwordValue= passwordInput.value.trim();
+        const staffIdValue= staffId.value.trim();
+
+        if (allFilled) {
+            if(passwordValue === "2003oop" || passwordValue === "20030514"  && staffIdValue === "group09"){
+                window.location.href = '/guests'
+            }
+            else{
+                alert('Incorrect Staff ID or password! Please Check again');
+            }
+        } else {
+            alert('Please fill in all fields before continuing.');
+        }
+    });
+
+    passwordInput.addEventListener('input', function() {
+        if(passwordInput.value.length>0){
+            leftArm.style.transform = 'translate(54px,-140px) rotate(40deg) scaleY(1.4)';
+            rightArm.style.transform = 'translate(-74px ,-140px) rotate(-40deg) scaleY(1.4';
+            dot.forEach(dot=> {
+                dot.style.backgroundColor='rgb(51, 51, 51)';
+            })
+            mouth.style.width='18px';
+            mouth.style.height='18px';
+            mouth.style.borderRadius='100%';
+            mouth.style.transform='translateX(5px)';
+
+            ears.forEach(ear => {
+                ear.classList.add('shake');
+
+                ear.addEventListener('animationend', () => {
+                    ear.classList.remove('shake');
+                }, { once: true });
+            });
+        }
+        else{
+            leftArm.style.transform = 'rotate(30deg)';
+            rightArm.style.transform = 'rotate(-30deg)';
+            dot.forEach(dot=> {
+                dot.style.backgroundColor='white';
+            })
+
+            mouth.style.width='28px';
+            mouth.style.height='15px';
+            mouth.style.borderRadius='0 0 100px 100px';
+            mouth.style.transform='translateX(0)';
+        }});
+
+
+    staffId.addEventListener('focus', function() {
+
+        leftArm.style.transform = 'rotate(30deg) ';
+        rightArm.style.transform = 'rotate(-30deg) ';
+        dot.forEach(dot=> {
+            dot.style.backgroundColor='white';
+        })
+        mouth.style.borderRadius='0 0 100px 100px';
+        mouth.style.width='28px';
+        mouth.style.height= '15px';
+        mouth.style.transform='translateX(0px)';
+    })
+
+    staffId.addEventListener('input', function() {
+        ears.forEach(ear => {
+            ear.classList.add('shake');
+
+            ear.addEventListener('animationend', () => {
+                ear.classList.remove('shake');
+            }, { once: true });
+        });
+        eyes.forEach(dot => {
+            dot.classList.add('rotateEye');
+
+            dot.addEventListener('animationend', () => {
+                dot.classList.remove('rotateEye');
+            }, { once: true });
+        });
+    })
+
+    const isMobile = window.matchMedia("(max-width: 768px)");
+
+    function adjustForMobile() {
+        passwordInput.addEventListener('input', function() {
+            if(passwordInput.value.length>0){
+                leftArm.style.transform = 'translate(59px,-140px) rotate(40deg) scaleY(1.4)';
+                rightArm.style.transform = 'translate(-79px ,-140px) rotate(-40deg) scaleY(1.4';
+            }})
+    }
+
+    if(isMobile.matches){
+        adjustForMobile();
+    }
+
+    isMobile.addEventListener("change", (e) => {
+        if (e.matches) {
+            adjustForMobile();
+        } else {
+            document.querySelector('.teddy-arm.left').style.display = 'block';
+            document.querySelector('.teddy-arm.right').style.display = 'block';
+        }
+    });
+
+    const isMobileMax = window.matchMedia("(max-width: 1024px)");
+
+    function adjustForMobileMax() {
+        passwordInput.addEventListener('input', function() {
+            if(passwordInput.value.length>0){
+                leftArm.style.transform = 'translate(59px,-140px) rotate(40deg) scaleY(1.4)';
+                rightArm.style.transform = 'translate(-79px ,-140px) rotate(-40deg) scaleY(1.4';
+            }})
+    }
+
+    if(isMobileMax.matches){
+        adjustForMobileMax();
+    }
+
+    isMobile.addEventListener("change", (e) => {
+        if (e.matches) {
+            adjustForMobileMax();
+        } else {
+            document.querySelector('.teddy-arm.left').style.display = 'block';
+            document.querySelector('.teddy-arm.right').style.display = 'block';
+        }
+    });
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

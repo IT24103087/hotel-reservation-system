@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container" th:fragment="header(pageTitle)">
+    <header>
+        <div class="logo">
+            <i class="fas fa-bookmark"></i> GOLDEN HEAVEN HOTEL
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a th:href="@{/guests}" class="nav-link"
+                       th:classappend="${activePage == 'GuestList'} ? ' active' : ''">
+                        Guest List
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/registration}" class="nav-link"
+                       th:classappend="${activePage == 'Registration'} ? ' active' : ''">
+                        Registration
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
+</body>
+</html>
