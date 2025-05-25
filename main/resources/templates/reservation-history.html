@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation History</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+
+
+
+<body class="container mt-4" style="
+    background-image: url('/images/hotel-bg1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 20px;
+">
+
+
+
+
+<div style="
+    background-color: #000;
+    color: #fff;
+    padding: 10px 25px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+">
+    Reservation History
+</div>
+
+
+
+
+
+
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+    <tr>
+        <th>Guest Name</th>
+        <th>Phone</th>
+        <th>Room</th>
+        <th>Check-in</th>
+        <th>Check-out</th>
+        <th>Payment</th>
+        <th>Arrival Time</th>
+        <th>Actions</th> <!-- 👈 New column -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="r, rStat : ${reservations}"> <!-- 👈 Use rStat for index -->
+        <td th:text="${r.guestName}"></td>
+        <td th:text="${r.phoneNumber}"></td>
+        <td th:text="${r.roomType}"></td>
+        <td th:text="${r.checkInDate}"></td>
+        <td th:text="${r.checkOutDate}"></td>
+        <td th:text="${r.paymentMethod}"></td>
+        <td th:text="${r.arrivalTime}"></td>
+        <td>
+            <a th:href="@{'/reservations/edit/' + ${rStat.index}}" class="btn btn-sm btn-warning">Edit</a>
+            <a th:href="@{'/reservations/delete/' + ${rStat.index}}"
+               onclick="return confirm('Are you sure you want to delete this reservation?');"
+               class="btn btn-sm btn-danger">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="text-center">
+    <a href="/booking" class="btn btn-primary">Back to Reserve</a>
+</div>
+
+</body>
+</html>
