@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:url(https://interiordesignexplained.com/images/full-size/10/communal-spaces-in-hotel-rooms-1.jpeg);
+            background-color: #f4f4f4;
+            display: flex;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #28a745;
+            color: white;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        
+        /* Sidebar styles */
+        .sidebar {
+            width: 250px;
+            background: #2C3E50;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px 0;
+            background: #34495E;
+        }
+        .sidebar a h2 {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+        }
+        .sidebar .title-link {
+            background: transparent;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="/" class="title-link"><h2>Hotel Dashboard</h2></a>
+        <a href="/staff">Staff Management</a>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <h2>Staff Management Panel</h2>
+
+            <!-- Staff Table -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="staff : ${staffMembers}">
+                        <td th:text="${staff.id}">ID</td>
+                        <td th:text="${staff.fullName}">Name</td>
+                        <td th:text="${staff.role}">Role</td>
+                        <td>
+                            <a th:href="@{/staff/{id}(id=${staff.id})}" class="btn" style="margin-right: 5px;">View</a>
+                            <a th:href="@{/staff/{id}/edit(id=${staff.id})}" class="btn" style="margin-right: 5px;">Edit</a>
+                            <a th:href="@{/staff/{id}/delete(id=${staff.id})}" class="btn" style="background-color: #dc3545;" 
+                               onclick="return confirm('Are you sure you want to delete this staff member?')">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Add Staff Button -->
+            <div style="margin-top: 20px; text-align: center;">
+                <a href="/staff/new" class="btn">Add New Staff</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

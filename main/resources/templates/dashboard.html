@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(https://i.pinimg.com/originals/66/b2/fd/66b2fd54ca0b48ee62d1f7a65975770a.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .card {
+            background: #ECF0F1;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        /* Sidebar styles */
+        .sidebar {
+            width: 250px;
+            background: #2C3E50;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px 0;
+            background: #34495E;
+        }
+        .sidebar a h2 {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+        }
+        .sidebar .title-link {
+            background: transparent;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="/" class="title-link"><h2>Hotel Dashboard</h2></a>
+        <a href="/staff">Staff Management</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Welcome to Hotel Dashboard<span th:if="${username != null}" th:text="' - ' + ${username}"></span>!</h1>
+        <div class="card">
+            <h2>Staff Management</h2>
+            <p>Assign duties and update staff information.</p>
+        </div>
+        <div class="card">
+            <p><a href="/logout" style="color: #1879e8; text-decoration: none;">Logout</a></p>
+        </div>
+    </div>
+</body>
+</html>

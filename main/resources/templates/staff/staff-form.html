@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${staff.id == null ? 'Add New Staff Member' : 'Edit Staff Member'}">Staff Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:url(https://interiordesignexplained.com/images/full-size/10/communal-spaces-in-hotel-rooms-1.jpeg);
+            background-color: #f4f4f4;
+            display: flex;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 250px;
+            background: #2C3E50;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px 0;
+            background: #34495E;
+        }
+        .sidebar a h2 {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+        }
+        .sidebar .title-link {
+            background: transparent;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="/" class="title-link"><h2>Hotel Dashboard</h2></a>
+        <a href="/staff">Staff Management</a>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <h2 th:text="${staff.id == null ? 'Add New Staff Member' : 'Edit Staff Member'}">Staff Form</h2>
+
+            <form th:action="${staff.id == null ? '/staff' : '/staff/' + staff.id}" method="post" th:object="${staff}">
+                <input type="hidden" th:if="${staff.id != null}" th:field="*{id}" />
+
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" th:field="*{firstName}" required="true" />
+                    <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" style="color: red;"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" th:field="*{lastName}" required="true" />
+                    <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color: red;"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" th:field="*{email}" required="true" />
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red;"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="role">Role:</label>
+                    <select th:field="*{role}" required="true">
+                        <option value="" label="-- Select Role --" />
+                        <option th:each="role : ${staffRoles}" th:value="${role.name()}" th:text="${role.displayName}"></option>
+                    </select>
+                    <span th:if="${#fields.hasErrors('role')}" th:errors="*{role}" style="color: red;"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="text" th:field="*{phoneNumber}" />
+                    <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" style="color: red;"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea th:field="*{address}" rows="3"></textarea>
+                    <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" style="color: red;"></span>
+                </div>
+
+                <div style="margin-top: 20px; text-align: center;">
+                    <a href="/staff" style="margin-right: 10px; text-decoration: none; color: #333;">Cancel</a>
+                    <button type="submit" class="btn" th:text="${staff.id == null ? 'Add Staff' : 'Update Staff'}">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
